@@ -11,3 +11,8 @@ git fetch --all
 git branch -va
 
 
+
+
+MariaDB/server project, release branch (10.1, 10.2, etc)
+/debian/additions folder
+

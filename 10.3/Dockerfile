@@ -1,4 +1,4 @@
-FROM alpine:%%SUITE%%
+FROM alpine:3.10
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN addgroup -S mysql && adduser -S mysql mysql
@@ -33,9 +33,9 @@ RUN set -ex; \
 		xz \
 	;
 
-# architectures:%%ARCHES%%
-ENV MARIADB_MAJOR %%MARIADB_MAJOR%%
-ENV MARIADB_VERSION %%MARIADB_VERSION%%
+# architectures: aarch64 armhf x86_64
+ENV MARIADB_MAJOR 10.3
+ENV MARIADB_VERSION 10.3.25-r0
 
 
 # the "/var/lib/mysql" stuff here is because the mysql-server postinst doesn't have an explicit way to disable the mysql_install_db codepath besides having a database already "configured" (ie, stuff in /var/lib/mysql/mysql)
@@ -45,7 +45,7 @@ RUN set -ex; \
 		"mariadb=$MARIADB_VERSION" \
 		"mariadb-client=$MARIADB_VERSION" \
 # mariadb-backup is installed at the same time so that `mysql-common` is only installed once from just mariadb repos
-		%%BACKUP_PACKAGE%% \
+		mariadb-backup \
 		socat; \
 # my alpine fixes
 	ln -sf /usr/share/mariadb /usr/share/mysql; \
