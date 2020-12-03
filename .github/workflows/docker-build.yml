@@ -14,7 +14,7 @@ jobs:
         version: [10.2, 10.3, 10.4]
         include:
           - version: 10.4
-            latest: True
+            latest: "true"
     steps:
       - 
         name: Prepare
@@ -27,7 +27,7 @@ jobs:
           echo ::set-output name=version::$VERSION
           echo ::set-output name=docker_username::ejsmit
           TAG=ghcr.io/ejsmit/mariadb:${VERSION}
-          if $LATEST; then
+          if [[ $LATEST == "true" ]]; then
             LATEST_TAG=",ghcr.io/ejsmit/mariadb:latest"
           fi
           echo ::set-output name=docker_tags::${TAG}${LATEST_TAG}
