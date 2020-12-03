@@ -30,7 +30,7 @@ jobs:
           if $LATEST; then
             LATEST_TAG=",ghcr.io/ejsmit/mariadb:latest"
           fi
-          echo ::set-output name=docker_tags::${TAG}${LATEST}
+          echo ::set-output name=docker_tags::${TAG}${LATEST_TAG}
       - 
         name: Checkout
         uses: actions/checkout@v2
@@ -55,6 +55,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ${{ matrix.version }}
+          file: ./${{ matrix.version }}/Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags: ${{ steps.prepare.outputs.docker_tags }}
