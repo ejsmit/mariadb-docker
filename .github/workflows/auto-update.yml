@@ -12,7 +12,7 @@ on:
 
 jobs:
 
-  greet:
+  autoupdate:
 
     runs-on: ubuntu-latest
 
