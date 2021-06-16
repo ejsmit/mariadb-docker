@@ -33,7 +33,7 @@ jobs:
           echo ::set-output name=docker_tags::${TAG}${LATEST_TAG}
       - 
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           ref: ${{ github.head_ref }}
       -
