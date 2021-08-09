@@ -35,7 +35,7 @@ RUN set -ex; \
 
 # architectures: aarch64 armhf x86_64
 ENV MARIADB_MAJOR 10.4
-ENV MARIADB_VERSION 10.4.19-r0
+ENV MARIADB_VERSION 10.4.21-r0
 
 
 # the "/var/lib/mysql" stuff here is because the mysql-server postinst doesn't have an explicit way to disable the mysql_install_db codepath besides having a database already "configured" (ie, stuff in /var/lib/mysql/mysql)
