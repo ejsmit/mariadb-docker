@@ -27,6 +27,6 @@ jobs:
       run: ./update.sh
     - 
       name: commit updated docker files
-      uses: stefanzweifel/git-auto-commit-action@v4.11.0
+      uses: stefanzweifel/git-auto-commit-action@v4.12.0
       with:
         commit_message: Auto-update dockerfiles
